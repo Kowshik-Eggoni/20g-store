@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { json } from '@remix-run/node';
+import { json } from '@shopify/remix-oxygen';
 import { Link, useLoaderData } from '@remix-run/react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';

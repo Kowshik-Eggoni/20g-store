@@ -76,7 +76,28 @@ export function Footer() {
 
         <div className="site-footer__bottom">
           <span>© {new Date().getFullYear()} NutriNomNom. All rights reserved.</span>
-          <span>Made with 💚 in Hyderabad</span>
+          <div style={{display:'flex', gap:'20px', flexWrap:'wrap', justifyContent:'flex-end'}}>
+            <Link to="/pages/terms" style={{color:'rgba(255,255,255,0.45)', fontSize:'0.8rem', transition:'color 200ms'}}
+              onMouseOver={e => e.target.style.color='white'}
+              onMouseOut={e => e.target.style.color='rgba(255,255,255,0.45)'}>
+              Terms &amp; Conditions
+            </Link>
+            <Link to="/pages/privacy" style={{color:'rgba(255,255,255,0.45)', fontSize:'0.8rem', transition:'color 200ms'}}
+              onMouseOver={e => e.target.style.color='white'}
+              onMouseOut={e => e.target.style.color='rgba(255,255,255,0.45)'}>
+              Privacy Policy
+            </Link>
+            <Link to="/pages/shipping" style={{color:'rgba(255,255,255,0.45)', fontSize:'0.8rem', transition:'color 200ms'}}
+              onMouseOver={e => e.target.style.color='white'}
+              onMouseOut={e => e.target.style.color='rgba(255,255,255,0.45)'}>
+              Shipping Policy
+            </Link>
+            <Link to="/pages/returns" style={{color:'rgba(255,255,255,0.45)', fontSize:'0.8rem', transition:'color 200ms'}}
+              onMouseOver={e => e.target.style.color='white'}
+              onMouseOut={e => e.target.style.color='rgba(255,255,255,0.45)'}>
+              Returns &amp; Refunds
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

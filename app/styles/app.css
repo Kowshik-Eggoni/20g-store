@@ -764,3 +764,265 @@ button, input, select, textarea { font-family: inherit; }
 .gap-md { gap: var(--space-md); }
 .gap-lg { gap: var(--space-lg); }
 .w-full { width: 100%; }
+
+/* ============================================================
+   HOMEPAGE STYLES — class names used in _index.jsx
+   ============================================================ */
+
+/* ---- Section background variants ---- */
+.section-dark  { background: var(--color-ink); color: white; }
+.section-green { background: var(--color-green-dark); color: white; }
+.section-cream { background: var(--color-cream); }
+.section-white, .section--white { background: white; }
+
+/* ---- Ticker ---- */
+.ticker {
+  overflow: hidden;
+  background: var(--color-green-dark);
+  padding: 10px 0;
+}
+.dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ---- Hero inner layout ---- */
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.5) 40px, rgba(255,255,255,0.5) 42px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.5) 40px, rgba(255,255,255,0.5) 42px);
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  padding: var(--space-3xl) var(--space-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: var(--space-lg);
+  width: fit-content;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin-bottom: var(--space-lg);
+  color: white;
+}
+.hero-title em { font-style: normal; color: #6FCF97; }
+.hero-sub {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: var(--space-xl);
+}
+.hero-cta { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+.product-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.ptile {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: all var(--transition);
+  overflow: hidden;
+  text-decoration: none;
+}
+.ptile:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+.ptile-icon { font-size: 2.5rem; margin-bottom: var(--space-sm); }
+.ptile-name { font-weight: 700; font-size: 0.95rem; color: white; }
+.ptile-badge { color: #6FCF97; font-size: 0.78rem; font-weight: 700; margin-top: 4px; }
+.ptile-price { color: rgba(255,255,255,0.6); font-size: 0.8rem; font-weight: 700; margin-top: 4px; }
+
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; padding: var(--space-2xl) var(--space-md); }
+  .product-tiles { grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+}
+
+/* ---- Grid shorthands ---- */
+.g2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-xl); }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+@media (max-width: 768px) {
+  .g2, .g3 { grid-template-columns: 1fr; }
+}
+
+/* ---- Typography helpers ---- */
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+}
+.lead {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--color-ink-light);
+}
+.label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-green-dark);
+  background: var(--color-green-light);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-md);
+}
+.label-light { color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.12); }
+
+/* ---- Ghost button ---- */
+.btn-ghost {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.35);
+  color: white;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); color: white; }
+
+/* ---- Product cards (homepage grid) ---- */
+.prod-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+.prod-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.prod-img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-green-light);
+}
+.prod-img img { width: 100%; height: 100%; object-fit: cover; }
+.prod-badge {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+.prod-body { padding: var(--space-lg); display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.prod-name { font-weight: 800; font-size: 1.05rem; }
+.prod-sub { font-size: 0.82rem; color: var(--color-ink-muted); font-weight: 500; }
+.prod-tagline { font-size: 0.88rem; color: var(--color-ink-light); font-style: italic; margin-top: 4px; }
+.use-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.use-chip {
+  background: var(--color-green-light);
+  color: var(--color-green-dark);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.prod-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+.prod-price { font-weight: 900; font-size: 1.25rem; color: var(--color-green-dark); }
+.prod-detail { font-size: 0.75rem; color: var(--color-ink-muted); margin-top: 2px; }
+
+/* ---- Comparison cards ---- */
+.cmp-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  border: 2px solid var(--color-border);
+  text-align: center;
+  flex: 1;
+  min-width: 180px;
+  max-width: 260px;
+}
+.cmp-hero {
+  background: var(--color-green-dark);
+  color: white;
+  border-color: var(--color-green-dark);
+  transform: scale(1.04);
+  box-shadow: var(--shadow-lg);
+}
+.cmp-tag {
+  display: inline-block;
+  background: var(--color-highlight);
+  color: var(--color-ink);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-sm);
+}
+.cmp-price { font-size: 2.5rem; font-weight: 900; line-height: 1.1; }
+.cmp-protein { font-size: 1rem; font-weight: 600; opacity: 0.75; }
+.cmp-name { font-weight: 700; margin-top: var(--space-sm); font-size: 0.95rem; }
+.cmp-note { font-size: 0.8rem; color: var(--color-ink-muted); margin-top: 6px; line-height: 1.5; }
+.cmp-hero .cmp-name { color: white; }
+.cmp-hero .cmp-note { color: rgba(255,255,255,0.65); }
+
+/* ---- Testimonial cards ---- */
+.tcard {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+.tcard-stars { color: var(--color-highlight); font-size: 1.1rem; margin-bottom: var(--space-md); letter-spacing: 2px; }
+.tcard-text { font-size: 1rem; line-height: 1.7; font-style: italic; color: var(--color-ink); margin-bottom: var(--space-md); }
+.tcard-author { display: flex; align-items: center; gap: var(--space-md); }

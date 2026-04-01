@@ -1,5 +1,7 @@
 import {useLoaderData, Link} from '@remix-run/react';
 import {json} from '@shopify/remix-oxygen';
+import {Header} from '../components/Header';
+import {Footer} from '../components/Footer';
 
 // ── Storefront API query ──────────────────────────────────────────────────────
 const HOMEPAGE_PRODUCTS_QUERY = `#graphql
@@ -89,6 +91,7 @@ export default function Homepage() {
 
   return (
     <>
+      <Header />
       {/* ── TICKER ── */}
       <div className="ticker">
         <div className="ticker-track">
@@ -411,6 +414,7 @@ export default function Homepage() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

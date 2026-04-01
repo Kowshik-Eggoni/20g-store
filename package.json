@@ -11,9 +11,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@remix-run/cloudflare": "^2.15.0",
     "@remix-run/react": "^2.15.0",
     "@shopify/hydrogen": "2024.10.2",
-    "@shopify/mini-oxygen": "^4.0.2",
+    "@shopify/mini-oxygen": "^3.2.1",
     "@shopify/oxygen-workers-types": "^4.2.0",
     "@shopify/remix-oxygen": "^2.0.7",
     "isbot": "^4.4.0",

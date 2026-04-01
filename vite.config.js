@@ -25,6 +25,9 @@ export default defineConfig({
   },
   ssr: {
     noExternal: true,
+    // @remix-run/node uses Node.js built-ins (node:crypto) incompatible with
+    // Cloudflare Workers — externalize it so it doesn't get bundled.
+    external: ['@remix-run/node'],
     target: 'webworker',
     resolve: {
       conditions: workerConditions,

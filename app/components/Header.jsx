@@ -16,23 +16,7 @@ export function Header({ cartCount = 0 }) {
         <div className="site-header__inner">
           {/* Logo */}
           <Link to="/" className="site-header__logo">
-            <svg width="44" height="44" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="400" height="400" rx="64" fill="#1A5C35"/>
-              <text x="28" y="316" fontFamily="Arial Black, Impact, sans-serif" fontSize="295" fontWeight="900" fill="white">2</text>
-              <ellipse cx="268" cy="230" rx="70" ry="82" fill="white"/>
-              <rect x="238" y="60" width="82" height="160" rx="18" fill="white"/>
-              <ellipse cx="238" cy="92" rx="22" ry="30" fill="white" transform="rotate(-18,238,92)"/>
-              <text x="325" y="380" fontFamily="Arial, sans-serif" fontSize="62" fontWeight="400" fill="white">g</text>
-            </svg>
-            <span style={{
-              fontFamily: 'Jost, Arial Black, sans-serif',
-              fontWeight: 900,
-              fontSize: '1.1rem',
-              letterSpacing: '-0.02em',
-              color: '#1A5C35',
-            }}>
-              20g<span style={{ color: '#8A8A8A', fontWeight: 400, fontSize: '0.7rem', marginLeft: 4 }}>by NutriNomNom</span>
-            </span>
+            <img src="/logo.svg" alt="20g by NutriNomNom" style={{ height: 44, width: 'auto' }} />
           </Link>
 
           {/* Desktop Nav */}

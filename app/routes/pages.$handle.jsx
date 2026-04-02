@@ -183,6 +183,87 @@ const PAGES = {
     ],
   },
 
+  'why-20g': {
+    title: 'Why 20g?',
+    lastUpdated: '',
+    sections: [
+      {
+        heading: 'The protein gap in Indian diets',
+        body: `The average Indian consumes 35–40g of protein per day. Nutrition science recommends 0.8–1g per kg of body weight — which for a 60kg adult means 48–60g daily. That gap of 20–25g is exactly what one serving of any 20g product fills.`,
+      },
+      {
+        heading: 'Why not just eat more dal or paneer?',
+        body: `Dal is great, but you'd need 3–4 bowls to get 20g of protein. Paneer works but is expensive and perishable. Eggs are good but not for everyone. Protein supplements work, but they require building new habits and most taste synthetic. 20g products are different — they're foods you already eat, upgraded.`,
+      },
+      {
+        heading: 'Why 20g specifically?',
+        body: `20g per serving is the sweet spot. Research shows that 20–30g of protein per meal is the optimal range for muscle protein synthesis. One serving of any 20g product in one meal gets you there without needing to overhaul your diet. It's one scoop, one meal, one step closer to your daily goal.`,
+      },
+      {
+        heading: 'Clean protein, not synthetic',
+        body: `We use whey protein concentrate — the least processed form of whey, derived from dairy. It's combined with naturally protein-rich ingredients like peanuts (26g/100g), chana dal (22g/100g), and oats (17g/100g). The result is a protein profile that comes primarily from real food, not a lab.`,
+      },
+      {
+        heading: 'No new habits required',
+        body: `This is the core of what we believe. The best nutrition plan is the one you actually stick to. If you already eat podi rice every day, adding 20g Gunpowder requires zero behaviour change. Same meal, same habit — just with 20g of protein now working in your favour.`,
+      },
+    ],
+  },
+
+  ingredients: {
+    title: 'Ingredients',
+    lastUpdated: 'April 2026',
+    sections: [
+      {
+        heading: 'Classic Gunpowder — Full Ingredient List',
+        body: `Peanuts (45%), Roasted Chana Dal (20%), Sesame Seeds (10%), Red Chilli (8%), Whey Protein Concentrate (7%), Curry Leaves (5%), Garlic (3%), Salt (2%). Contains: Peanuts, Dairy (Whey). Manufactured in a facility that also processes tree nuts.`,
+      },
+      {
+        heading: 'Moringa Gunpowder — Full Ingredient List',
+        body: `Peanuts (40%), Moringa Leaf Powder (18%), Roasted Chana Dal (17%), Sesame Seeds (10%), Red Chilli (6%), Whey Protein Concentrate (5%), Curry Leaves (3%), Salt (1%), Black Pepper (trace). Contains: Peanuts, Dairy (Whey).`,
+      },
+      {
+        heading: 'Protein Oatmeal — Full Ingredient List',
+        body: `Rolled Oats (45%), Almonds (18%), Whey Protein Concentrate (15%), Milk Solids (10%), Dates (7%), Desiccated Coconut (3%), Cardamom (1%), Salt (1%). Contains: Oats, Tree Nuts (Almonds), Dairy (Whey, Milk Solids), Coconut.`,
+      },
+      {
+        heading: 'Our sourcing principles',
+        body: `All ingredients are sourced from FSSAI-approved suppliers. We do not use any artificial colours, artificial flavours, or synthetic preservatives. The shelf life of our products is achieved through low moisture content and natural preservatives (salt). We believe in full ingredient transparency — what you see on the label is everything in the product.`,
+      },
+      {
+        heading: 'Allergen notice',
+        body: `Our products contain peanuts, dairy (whey protein concentrate), and tree nuts (almonds in Protein Oatmeal). They are manufactured in a shared facility. If you have known allergies to any of these ingredients, please consult your healthcare provider before consuming our products.`,
+      },
+    ],
+  },
+
+  contact: {
+    title: 'Contact Us',
+    lastUpdated: '',
+    sections: [
+      {
+        heading: 'We\'re a small team and we actually read every message',
+        body: `NutriNomNom is a founder-led startup out of Hyderabad. When you write to us, you're reaching the people who made the product. We respond to every message, usually within one business day.`,
+      },
+      {
+        heading: 'Email',
+        body: `For order issues, product questions, feedback, or anything else: hello@nutrinomnom.com. Please include your order number if your query is about a specific order.`,
+      },
+      {
+        heading: 'WhatsApp',
+        body: `Prefer to chat? WhatsApp us at +91 99999 99999. We're available Monday–Saturday, 9am–6pm IST. For urgent order issues, WhatsApp is usually the fastest way to reach us.`,
+      },
+      {
+        heading: 'Returns & refunds',
+        body: `For returns, damaged products, or refund requests, please read our Returns Policy first — it covers most situations. Then email or WhatsApp us with your order number and photos if applicable.`,
+      },
+      {
+        heading: 'Wholesale & bulk orders',
+        body: `Interested in stocking 20g products in your store, gym, or office? We offer wholesale pricing for bulk orders above ₹10,000. Reach out at hello@nutrinomnom.com with the subject line "Wholesale Inquiry".`,
+      },
+    ],
+  },
+
   'our-story': {
     title: 'Our Story',
     lastUpdated: '',

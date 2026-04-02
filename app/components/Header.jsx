@@ -93,7 +93,7 @@ export function Header({ cartCount = 0 }) {
             <CartDrawer
               open={cartOpen}
               onClose={() => setCartOpen(false)}
-              lines={cart?.lines?.nodes || []}
+              lines={cart?.lines?.edges?.map(e => e.node) || cart?.lines?.nodes || []}
               checkoutUrl={cart?.checkoutUrl}
             />
           )}

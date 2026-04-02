@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { json } from '@shopify/remix-oxygen';
 import { Link, useLoaderData } from '@remix-run/react';
+import { CartForm } from '@shopify/hydrogen';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
@@ -195,7 +196,6 @@ export default function ProductPage() {
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [subscription, setSubscription] = useState(false);
-  const [addedToCart, setAddedToCart] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
 
   const selectedVariant = variants[selectedVariantIndex];
@@ -205,11 +205,7 @@ export default function ProductPage() {
 
   const images = product.images.nodes;
 
-  const handleAddToCart = () => {
-    // TODO: wire to Shopify cart API (cartCreate / cartLinesAdd)
-    setAddedToCart(true);
-    setTimeout(() => setAddedToCart(false), 2500);
-  };
+  // addedToCart is now driven by fetcher state (see CartForm below)
 
   return (
     <>
@@ -402,21 +398,34 @@ export default function ProductPage() {
                       style={{ width: 32, height: 32, border: 'none', background: 'none', cursor: 'pointer', fontSize: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     >+</button>
                   </div>
-                  <button
-                    onClick={handleAddToCart}
-                    className="btn btn-primary btn-lg"
-                    style={{
-                      flex: 1,
-                      background: addedToCart ? '#2E7D4F' : undefined,
-                      opacity: selectedVariant?.availableForSale === false ? 0.5 : 1,
-                      cursor: selectedVariant?.availableForSale === false ? 'not-allowed' : 'pointer',
+                  <CartForm
+                    route="/cart"
+                    action={CartForm.ACTIONS.LinesAdd}
+                    inputs={{
+                      lines: [{
+                        merchandiseId: selectedVariant?.id,
+                        quantity,
+                      }],
                     }}
-                    disabled={selectedVariant?.availableForSale === false}
                   >
-                    {selectedVariant?.availableForSale === false
-                      ? 'Out of Stock'
-                      : addedToCart ? '✓ Added to Cart!' : 'Add to Cart'}
-                  </button>
+                    {(fetcher) => (
+                      <button
+                        type="submit"
+                        className="btn btn-primary btn-lg"
+                        style={{
+                          flex: 1,
+                          background: fetcher.state !== 'idle' ? '#2E7D4F' : undefined,
+                          opacity: selectedVariant?.availableForSale === false ? 0.5 : 1,
+                          cursor: selectedVariant?.availableForSale === false ? 'not-allowed' : 'pointer',
+                        }}
+                        disabled={selectedVariant?.availableForSale === false || fetcher.state !== 'idle'}
+                      >
+                        {selectedVariant?.availableForSale === false
+                          ? 'Out of Stock'
+                          : fetcher.state !== 'idle' ? '✓ Adding...' : 'Add to Cart'}
+                      </button>
+                    )}
+                  </CartForm>
                 </div>
               </div>
 

@@ -1,11 +1,14 @@
-import { Link, useLocation } from '@remix-run/react';
-import { useState } from 'react';
+import { Link, useLocation, useRouteLoaderData } from '@remix-run/react';
+import { useState, Suspense } from 'react';
+import { Await } from '@remix-run/react';
 import { CartDrawer } from './CartDrawer';
 
 export function Header({ cartCount = 0 }) {
   const [cartOpen, setCartOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const rootData = useRouteLoaderData('root');
+  const cartPromise = rootData?.cart;
 
   return (
     <>
@@ -53,9 +56,14 @@ export function Header({ cartCount = 0 }) {
                 <line x1="3" y1="6" x2="21" y2="6"/>
                 <path d="M16 10a4 4 0 01-8 0"/>
               </svg>
-              {cartCount > 0 && (
-                <span className="cart-badge">{cartCount}</span>
-              )}
+              <Suspense fallback={null}>
+                <Await resolve={cartPromise}>
+                  {(cart) => {
+                    const count = cart?.totalQuantity || 0;
+                    return count > 0 ? <span className="cart-badge">{count}</span> : null;
+                  }}
+                </Await>
+              </Suspense>
             </button>
 
             {/* Mobile menu toggle */}
@@ -79,7 +87,18 @@ export function Header({ cartCount = 0 }) {
         </div>
       </header>
 
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
+      <Suspense fallback={<CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} lines={[]} />}>
+        <Await resolve={cartPromise}>
+          {(cart) => (
+            <CartDrawer
+              open={cartOpen}
+              onClose={() => setCartOpen(false)}
+              lines={cart?.lines?.nodes || []}
+              checkoutUrl={cart?.checkoutUrl}
+            />
+          )}
+        </Await>
+      </Suspense>
     </>
   );
 }

@@ -75,7 +75,7 @@ export function Footer() {
         </div>
 
         <div className="site-footer__bottom">
-          <span>© {new Date().getFullYear()} NutriNomNom. All rights reserved.</span>
+          <span>© 2026 NutriNomNom. All rights reserved.</span>
           <div style={{display:'flex', gap:'20px', flexWrap:'wrap', justifyContent:'flex-end'}}>
             <Link to="/pages/terms" style={{color:'rgba(255,255,255,0.45)', fontSize:'0.8rem', transition:'color 200ms'}}
               onMouseOver={e => e.target.style.color='white'}

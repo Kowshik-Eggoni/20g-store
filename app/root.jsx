@@ -5,7 +5,13 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
+import { json } from '@shopify/remix-oxygen';
 import stylesheet from './styles/app.css?url';
+
+export async function loader({ context }) {
+  const { cart } = context;
+  return json({ cart: cart.get() });
+}
 
 export function links() {
   return [

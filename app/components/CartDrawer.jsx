@@ -1,7 +1,7 @@
 import { Link } from '@remix-run/react';
-import { useState } from 'react';
+import { CartForm } from '@shopify/hydrogen';
 
-export function CartDrawer({ open, onClose, lines = [], total = '₹0.00' }) {
+export function CartDrawer({ open, onClose, lines = [], checkoutUrl }) {
   return (
     <>
       {/* Overlay */}
@@ -36,40 +36,65 @@ export function CartDrawer({ open, onClose, lines = [], total = '₹0.00' }) {
               </button>
             </div>
           ) : (
-            lines.map((line) => (
-              <div key={line.id} className="cart-item">
-                <div className="cart-item__image" style={{ background: 'var(--color-green-light)' }}>
-                  {line.image && (
-                    <img src={line.image} alt={line.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'var(--radius-md)' }} />
-                  )}
-                </div>
-                <div>
-                  <div className="cart-item__name">{line.title}</div>
-                  <div className="cart-item__variant">{line.variantTitle}</div>
-                  <div className="cart-item__price">₹{line.price}</div>
-                  <div className="cart-item__qty">
-                    <button aria-label="Decrease quantity">−</button>
-                    <span style={{ fontWeight: 700, minWidth: 20, textAlign: 'center' }}>{line.quantity}</span>
-                    <button aria-label="Increase quantity">+</button>
+            lines.map((line) => {
+              const { merchandise, quantity, id: lineId } = line;
+              const price = Math.round(parseFloat(merchandise?.price?.amount || 0));
+              const image = merchandise?.product?.featuredImage?.url;
+              const title = merchandise?.product?.title;
+              const variantTitle = merchandise?.title !== 'Default Title' ? merchandise?.title : null;
+
+              return (
+                <div key={lineId} className="cart-item">
+                  <div className="cart-item__image" style={{ background: 'var(--color-green-light)' }}>
+                    {image && (
+                      <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'var(--radius-md)' }} />
+                    )}
                   </div>
+                  <div style={{ flex: 1 }}>
+                    <div className="cart-item__name">{title}</div>
+                    {variantTitle && <div className="cart-item__variant">{variantTitle}</div>}
+                    <div className="cart-item__price">₹{price}</div>
+                    <div className="cart-item__qty">
+                      <CartForm route="/cart" action={CartForm.ACTIONS.LinesUpdate} inputs={{ lines: [{ id: lineId, quantity: Math.max(0, quantity - 1) }] }}>
+                        <button type="submit" aria-label="Decrease quantity">−</button>
+                      </CartForm>
+                      <span style={{ fontWeight: 700, minWidth: 20, textAlign: 'center' }}>{quantity}</span>
+                      <CartForm route="/cart" action={CartForm.ACTIONS.LinesUpdate} inputs={{ lines: [{ id: lineId, quantity: quantity + 1 }] }}>
+                        <button type="submit" aria-label="Increase quantity">+</button>
+                      </CartForm>
+                    </div>
+                  </div>
+                  <CartForm route="/cart" action={CartForm.ACTIONS.LinesRemove} inputs={{ lineIds: [lineId] }}>
+                    <button type="submit" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--color-ink-muted)', fontSize: '1.2rem', padding: '4px' }} aria-label="Remove item">×</button>
+                  </CartForm>
                 </div>
-              </div>
-            ))
+              );
+            })
           )}
         </div>
 
         {lines.length > 0 && (
           <div className="cart-drawer__footer">
             <div className="cart-drawer__total">
-              <span>Total</span>
-              <span>{total}</span>
+              <span>Subtotal</span>
+              <span>
+                ₹{lines.reduce((sum, line) => {
+                  return sum + Math.round(parseFloat(line.merchandise?.price?.amount || 0)) * line.quantity;
+                }, 0)}
+              </span>
             </div>
             <p style={{ fontSize: '0.78rem', color: 'var(--color-ink-muted)', marginBottom: 12 }}>
               Shipping calculated at checkout
             </p>
-            <a href="/checkout" className="btn btn-primary w-full">
-              Checkout →
-            </a>
+            {checkoutUrl ? (
+              <a href={checkoutUrl} className="btn btn-primary w-full">
+                Checkout →
+              </a>
+            ) : (
+              <a href="/checkout" className="btn btn-primary w-full">
+                Checkout →
+              </a>
+            )}
           </div>
         )}
       </div>

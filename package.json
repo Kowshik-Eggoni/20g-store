@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "shopify hydrogen dev --codegen",
+    "dev": "shopify hydrogen dev",
     "build": "shopify hydrogen build --codegen",
     "preview": "npm run build && shopify hydrogen preview",
     "lint": "eslint --no-eslintrc -c .eslintrc.cjs --ext .js,.ts,.jsx,.tsx .",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@remix-run/dev": "^2.15.0",
     "@shopify/cli": "^3.73.5",
+    "@shopify/mini-oxygen": "^3.0.6",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "eslint": "^8.57.0",

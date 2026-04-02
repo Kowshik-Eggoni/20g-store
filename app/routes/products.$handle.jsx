@@ -201,7 +201,8 @@ export default function ProductPage() {
   const selectedVariant = variants[selectedVariantIndex];
   const basePrice = parseFloat(selectedVariant?.price?.amount || 0);
   const subscriptionPrice = Math.round(basePrice * 0.85);
-  const displayPrice = subscription ? subscriptionPrice : Math.round(basePrice);
+  const unitPrice = subscription ? subscriptionPrice : Math.round(basePrice);
+  const displayPrice = unitPrice * quantity;
 
   const images = product.images.nodes;
 
@@ -227,12 +228,7 @@ export default function ProductPage() {
       {/* Main product layout */}
       <section style={{ background: 'white', padding: 'var(--space-2xl) 0' }}>
         <div className="container">
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 'var(--space-3xl)',
-            alignItems: 'start',
-          }}>
+          <div className="product-layout">
 
             {/* LEFT: Product image gallery */}
             <div>
@@ -377,12 +373,9 @@ export default function ProductPage() {
                   </span>
                   {subscription && (
                     <span style={{ fontSize: '1.1rem', color: 'var(--color-ink-muted)', textDecoration: 'line-through' }}>
-                      ₹{Math.round(basePrice)}
+                      ₹{Math.round(basePrice) * quantity}
                     </span>
                   )}
-                  <span style={{ fontSize: '0.85rem', color: 'var(--color-ink-muted)' }}>
-                    / {selectedVariant?.title}
-                  </span>
                 </div>
 
                 {/* Quantity */}

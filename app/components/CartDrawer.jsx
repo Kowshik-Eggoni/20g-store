@@ -39,7 +39,7 @@ export function CartDrawer({ open, onClose, lines = [], checkoutUrl }) {
             lines.map((line) => {
               const { merchandise, quantity, id: lineId } = line;
               const price = Math.round(parseFloat(merchandise?.price?.amount || 0));
-              const image = merchandise?.product?.featuredImage?.url;
+              const image = merchandise?.image?.url;
               const title = merchandise?.product?.title;
               const variantTitle = merchandise?.title !== 'Default Title' ? merchandise?.title : null;
 

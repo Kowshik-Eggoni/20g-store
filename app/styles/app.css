@@ -429,7 +429,7 @@ button, input, select, textarea { font-family: inherit; }
   align-items: center;
   gap: var(--space-sm);
 }
-.site-header__logo img { height: 44px; width: auto; }
+.site-header__logo img { height: 56px; width: auto; }
 .site-header__nav {
   display: flex;
   gap: var(--space-xl);

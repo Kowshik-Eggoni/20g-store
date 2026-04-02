@@ -15,8 +15,12 @@ export function Header({ cartCount = 0 }) {
       <header className="site-header" style={{ position: 'relative' }}>
         <div className="site-header__inner">
           {/* Logo */}
-          <Link to="/" className="site-header__logo">
-            <img src="/logo.svg" alt="20g by NutriNomNom" style={{ height: 44, width: 'auto' }} />
+          <Link to="/" className="site-header__logo" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+            <img src="/logo.svg" alt="20g by NutriNomNom" style={{ height: 52, width: 'auto' }} />
+            <div style={{ lineHeight: 1.15 }}>
+              <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--color-ink)', letterSpacing: '-0.02em' }}>20g</div>
+              <div style={{ fontSize: '0.6rem', fontWeight: 600, color: 'var(--color-ink-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>by NutriNomNom</div>
+            </div>
           </Link>
 
           {/* Desktop Nav */}

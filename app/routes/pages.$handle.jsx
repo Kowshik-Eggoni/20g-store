@@ -22,7 +22,7 @@ const PAGES = {
       },
       {
         heading: '4. Shipping & Delivery',
-        body: `We aim to dispatch orders within 1–2 business days. Estimated delivery times are 3–7 business days depending on your location within India. We currently ship only within India. Shipping is free on orders above ₹599; a flat shipping fee applies to orders below this threshold. Delivery timelines are estimates and not guaranteed. NutriNomNom is not liable for delays caused by third-party courier services, natural events, or circumstances beyond our control.`,
+        body: `We aim to dispatch orders within 1–2 business days. Estimated delivery times are 3–7 business days depending on your location within India. We currently ship only within India. Shipping is free on orders above ₹999; a flat shipping fee applies to orders below this threshold. Delivery timelines are estimates and not guaranteed. NutriNomNom is not liable for delays caused by third-party courier services, natural events, or circumstances beyond our control.`,
       },
       {
         heading: '5. Returns & Refunds',
@@ -104,7 +104,7 @@ const PAGES = {
       },
       {
         heading: 'Shipping Charges',
-        body: `Shipping is free on all orders above ₹599. For orders below ₹599, a flat shipping fee of ₹49 applies. This will be clearly displayed at checkout before you complete your purchase.`,
+        body: `Shipping is free on all orders above ₹999. For orders below ₹999, a flat shipping fee of ₹49 applies. This will be clearly displayed at checkout before you complete your purchase.`,
       },
       {
         heading: 'Currently Shipping',

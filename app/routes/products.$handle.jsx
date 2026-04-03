@@ -425,7 +425,7 @@ export default function ProductPage() {
               {/* Trust micro-signals */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: 'var(--space-lg)', background: 'var(--color-cream)', borderRadius: 'var(--radius-lg)' }}>
                 {[
-                  '🚚 Free shipping on orders above ₹599',
+                  '🚚 Free shipping on orders above ₹999',
                   '💯 100% clean ingredients — readable label',
                   '🔄 Easy returns within 7 days',
                   '💬 Questions? WhatsApp us anytime',

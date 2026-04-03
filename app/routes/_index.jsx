@@ -86,7 +86,7 @@ export default function Homepage() {
     '🫙 Shelf Stable — Travel Friendly',
     '🇮🇳 Made in India',
     '⚡ No New Habits Required',
-    '🚚 Free Shipping above ₹599',
+    '🚚 Free Shipping above ₹999',
   ];
 
   return (
@@ -406,7 +406,7 @@ export default function Homepage() {
             Your food is already good.<br/>Make it do more.
           </h2>
           <p className="lead" style={{color:'rgba(255,255,255,0.6)',marginBottom:'40px',maxWidth:'400px',margin:'0 auto 40px'}}>
-            Try any 20g product for ₹349. Free shipping above ₹599.
+            Try any 20g product for ₹349. Free shipping above ₹999.
           </p>
           <div style={{display:'flex',gap:'16px',justifyContent:'center',flexWrap:'wrap'}}>
             <a href="#products" className="btn btn-primary btn-lg">Shop Now</a>

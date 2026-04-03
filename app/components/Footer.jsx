@@ -8,7 +8,7 @@ export function Footer() {
           {/* Brand column */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <img src="/logo.svg" alt="20g by NutriNomNom" style={{ height: 64, width: 'auto' }} />
+              <img src="/logo.svg" alt="20g by NutriNomNom" style={{ height: 64, width: 'auto', borderRadius: '18%' }} />
               <div style={{ lineHeight: 1.15 }}>
                 <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'white', letterSpacing: '-0.02em' }}>20g</div>
                 <div style={{ fontSize: '0.62rem', fontWeight: 600, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>by NutriNomNom</div>
